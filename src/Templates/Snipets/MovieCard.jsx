@@ -1,15 +1,28 @@
+import Badge from "react-bootstrap/Badge";
+import Card from "react-bootstrap/Card";
+
 const MovieCard = ({ movieData }) => {
-  return (
-<div>
-					<h2>{movieData.Title}</h2>
-					<img src={movieData.Poster} alt={movieData.Title} />
-					<p>Year: {movieData.Year}</p>
-					<p>Genre: {movieData.Genre}</p>
-					<p>Director: {movieData.Director}</p>
-					<p>Actors: {movieData.Actors}</p>
-					<p>{movieData.Plot}</p>
-				</div>
-  );
-}
+	return (
+		<>
+			<Card className="movie-card h-100 border-0 shadow-sm">
+				<Card.Img
+					variant="top"
+					className="movie-poster"
+					src={movieData.Poster}
+					alt={movieData.Title}
+				/>
+				<Card.Body className="d-flex flex-column">
+					<Card.Title className="fs-6 mb-2">{movieData.Title}</Card.Title>
+					<div className="mt-auto d-flex justify-content-between align-items-center">
+						<span className="text-body-secondary">{movieData.Year}</span>
+						<Badge bg="primary" className="text-capitalize">
+							{movieData.Type}
+						</Badge>
+					</div>
+				</Card.Body>
+			</Card>
+		</>
+	);
+};
 
 export default MovieCard;
