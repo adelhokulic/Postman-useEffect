@@ -12,10 +12,10 @@ const MovieCard = ({ movieData }) => {
 					alt={movieData.Title}
 				/>
 				<Card.Body className="d-flex flex-column">
-					<Card.Title className="fs-6 mb-2">{movieData.Title}</Card.Title>
+					<Card.Title className="fs-6">{movieData.Title}</Card.Title>
 					<div className="mt-auto d-flex justify-content-between align-items-center">
 						<span className="text-body-secondary">{movieData.Year}</span>
-						<Badge bg="primary" className="text-capitalize">
+						<Badge className="text-capitalize">
 							{movieData.Type}
 						</Badge>
 					</div>
