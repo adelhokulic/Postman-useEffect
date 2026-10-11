@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const GetMovies = () => {
 	const [movieName, setMovieName] = useState("");
-	const [movieData, setMovieData] = useState({});
+	const [movieData, setMovieData] = useState(null);
 	useEffect(() => {
 		fetchMovie("The Matrix");
 	}, []);
@@ -25,7 +25,8 @@ const GetMovies = () => {
 					Search
 				</button>
 			</form>
-			<MovieCard movieData={movieData} />
+			{movieData?.Response === "True" && <MovieCard movieData={movieData} />}
+			{movieData?.Response === "False" && <p>{movieData.Error}</p>}
 			</>
 	);
 	function fetchMovie(title) {
